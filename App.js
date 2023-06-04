@@ -1,7 +1,7 @@
 import { StatusBar } from "expo-status-bar";
 import { StyleSheet, Text, View } from "react-native";
 
-import LoginScreen from "./src/Screens/LoginScreen";
+// import LoginScreen from "./src/Screens/LoginScreen";
 import RegistrationScreen from "./src/Screens/RegistrationScreen";
 import PostsScreen from "./src/Screens/PostsScreen";
 import { useFonts } from "expo-font";
@@ -28,7 +28,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
 	container: {
-		flex: 1,
+		display: "flex",
 		justifyContent: "flex-end",
 	},
 });
