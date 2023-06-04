@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import AuthorizationForm from "./AuthorizationForm";
-import Input from "./Input";
+import AuthorizationForm from "../Components/Authorization/AuthorizationForm";
+import Input from "../Components/Authorization/Input";
 
 export default function RegistrationScreen() {
 	const [login, setLogin] = useState("");

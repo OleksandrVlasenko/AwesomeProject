@@ -1,8 +1,7 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 
 import SubmitButton from "./SubmitButton";
 import ButtonChangeAuthorization from "./ButtonChangeAuthorization";
-import BackgroundImage from "./BackgroundImage";
 import UserPhoto from "./UserPhoto";
 
 export default function AuthorizationForm({
@@ -11,19 +10,24 @@ export default function AuthorizationForm({
 	changeAuthorizationTitle,
 	children,
 }) {
+	const isRegistration = title === "Реєстрація";
 	return (
 		<>
-			<BackgroundImage />
+			<Image
+				source={require("../../Images/BackgroundImg.jpg")}
+				resizeMode="cover"
+			/>
+
 			<View
 				style={[
 					styles.container,
 					{
-						paddingTop: title === "Реєстрація" ? 92 : 32,
-						paddingBottom: title === "Реєстрація" ? 78 : 144,
+						paddingTop: isRegistration ? 92 : 32,
+						paddingBottom: isRegistration ? 78 : 144,
 					},
 				]}
 			>
-				{title === "Реєстрація" && <UserPhoto />}
+				{isRegistration && <UserPhoto />}
 				<Text style={styles.title}>{title}</Text>
 				<View style={styles.inputsList}>{children}</View>
 
