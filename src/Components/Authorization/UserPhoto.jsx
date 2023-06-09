@@ -9,14 +9,14 @@ export default function UserPhoto() {
 		<View style={styles.container}>
 			<Image style={styles.image} />
 			<Pressable
-				style={[styles.addPhotoBtn, isLoaded && { borderColor: "#E8E8E8" }]}
+				style={styles.addPhotoBtn}
 				onPress={() => setIsLoaded(!isLoaded)}
 			>
-				{!isLoaded ? (
-					<AntDesign name="pluscircleo" size={25} color="#FF6C00" />
-				) : (
-					<AntDesign name="closecircleo" size={25} color="#E8E8E8" />
-				)}
+				<AntDesign
+					name={isLoaded ? "pluscircleo" : "closecircleo"}
+					size={25}
+					color={isLoaded ? "#FF6C00" : "#E8E8E8"}
+				/>
 			</Pressable>
 		</View>
 	);

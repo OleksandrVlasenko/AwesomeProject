@@ -17,7 +17,7 @@ export default function Input({ placeholder, onChangeText, value }) {
 				onFocus={() => setFocus(!focus)}
 				onBlur={() => setFocus(!focus)}
 			/>
-			{isPassword && value && focus && (
+			{isPassword && (
 				<Pressable
 					style={styles.showPassword.container}
 					onPress={() => setHidePasword(!hidePasword)}
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 	showPassword: {
 		container: {
 			position: "absolute",
-			top: 18,
+			top: 21,
 			right: 16,
 			widht: 72,
 		},

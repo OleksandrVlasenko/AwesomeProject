@@ -8,24 +8,18 @@ export default function RegistrationScreen() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	return (
-		<>
-			<AuthorizationForm
-				title="Реєстрація"
-				buttonTitle="Зареєстуватися"
-				changeAuthorizationTitle="Вже є акаунт? Увійти"
-			>
-				<Input placeholder="Логін" onChangeText={setLogin} value={login} />
-				<Input
-					placeholder="Адреса електронної пошти"
-					onChangeText={setEmail}
-					value={email}
-				/>
-				<Input
-					placeholder="Пароль"
-					onChangeText={setPassword}
-					value={password}
-				/>
-			</AuthorizationForm>
-		</>
+		<AuthorizationForm
+			title="Реєстрація"
+			buttonTitle="Зареєстуватися"
+			changeAuthorizationTitle="Вже є акаунт? Увійти"
+		>
+			<Input placeholder="Логін" onChangeText={setLogin} value={login} />
+			<Input
+				placeholder="Адреса електронної пошти"
+				onChangeText={setEmail}
+				value={email}
+			/>
+			<Input placeholder="Пароль" onChangeText={setPassword} value={password} />
+		</AuthorizationForm>
 	);
 }
