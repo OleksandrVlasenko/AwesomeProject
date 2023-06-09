@@ -1,16 +1,15 @@
-import { useState } from "react";
 import { Pressable, StyleSheet, Text } from "react-native";
 
 export default function ButtonChangeAuthorization({ title }) {
-	const [onPress, setOnPress] = useState(false);
 	return (
-		<Pressable
-			onPressIn={() => setOnPress(!onPress)}
-			onPressOut={() => setOnPress(!onPress)}
-		>
-			<Text style={[styles.textChangeAuthorization, onPress && styles.onPress]}>
-				{title}
-			</Text>
+		<Pressable>
+			{({ pressed }) => (
+				<Text
+					style={[styles.textChangeAuthorization, pressed && styles.onPress]}
+				>
+					{title}
+				</Text>
+			)}
 		</Pressable>
 	);
 }

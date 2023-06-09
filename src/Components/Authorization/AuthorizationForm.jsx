@@ -16,6 +16,7 @@ export default function AuthorizationForm({
 			<Image
 				source={require("../../Images/BackgroundImg.jpg")}
 				resizeMode="cover"
+				style={styles.image}
 			/>
 
 			<View
@@ -39,6 +40,8 @@ export default function AuthorizationForm({
 }
 
 const styles = StyleSheet.create({
+	image: { width: "100%" },
+
 	container: {
 		position: "absolute",
 		bottom: 0,
@@ -66,7 +69,6 @@ const styles = StyleSheet.create({
 
 	inputsList: {
 		display: "flex",
-		alignItems: "stretch",
 		gap: 16,
 
 		marginBottom: 43,

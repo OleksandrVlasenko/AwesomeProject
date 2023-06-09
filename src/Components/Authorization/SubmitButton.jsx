@@ -1,16 +1,9 @@
-import { useState } from "react";
 import { Pressable, StyleSheet, Text } from "react-native";
 
 export default function SubmitButton({ title }) {
-	const [onPress, setOnPress] = useState(false);
 	return (
 		<Pressable
-			style={[
-				styles.button,
-				onPress && { backgroundColor: "rgba(255, 108, 0, 0.5)" },
-			]}
-			onPressIn={() => setOnPress(!onPress)}
-			onPressOut={() => setOnPress(!onPress)}
+			style={({ pressed }) => [styles.button, pressed && styles.pressed]}
 		>
 			<Text style={styles.buttonText}>{title}</Text>
 		</Pressable>
@@ -32,6 +25,8 @@ const styles = StyleSheet.create({
 
 		borderRadius: 100,
 	},
+
+	pressed: { backgroundColor: "rgba(255, 108, 0, 0.5)" },
 
 	buttonText: {
 		fontFamily: "Roboto-Regular",

@@ -48,7 +48,6 @@ const styles = StyleSheet.create({
 	},
 
 	onFocus: { borderColor: "#FF6C00", backgroundColor: "#FFFFFF" },
-	onBlur: {},
 
 	showPassword: {
 		container: {

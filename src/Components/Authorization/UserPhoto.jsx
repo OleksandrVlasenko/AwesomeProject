@@ -1,8 +1,7 @@
 import { Image, Pressable, StyleSheet, View } from "react-native";
 
-import AddUserPhoto from "../../Images/AddUserPhoto.png";
-import RemoveUserPhoto from "../../Images/RemoveUserPhoto.png";
 import { useState } from "react";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function UserPhoto() {
 	const [isLoaded, setIsLoaded] = useState(false);
@@ -13,7 +12,11 @@ export default function UserPhoto() {
 				style={[styles.addPhotoBtn, isLoaded && { borderColor: "#E8E8E8" }]}
 				onPress={() => setIsLoaded(!isLoaded)}
 			>
-				<Image source={!isLoaded ? AddUserPhoto : RemoveUserPhoto} />
+				{!isLoaded ? (
+					<AntDesign name="pluscircleo" size={25} color="#FF6C00" />
+				) : (
+					<AntDesign name="closecircleo" size={25} color="#E8E8E8" />
+				)}
 			</Pressable>
 		</View>
 	);
@@ -37,17 +40,8 @@ const styles = StyleSheet.create({
 		bottom: 14,
 		right: -12.5,
 
-		display: "flex",
-		justifyContent: "center",
-		alignItems: "center",
-
-		width: 25,
-		height: 25,
-
 		backgroundColor: "#FFFFFF",
 
-		borderWidth: 1,
-		borderColor: "#FF6C00",
 		borderRadius: 50,
 	},
 });
