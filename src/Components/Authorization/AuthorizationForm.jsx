@@ -1,56 +1,70 @@
-import { StyleSheet, Text, View, Image } from "react-native";
+import {
+	StyleSheet,
+	Text,
+	View,
+	KeyboardAvoidingView,
+	ImageBackground,
+} from "react-native";
 
 import SubmitButton from "./SubmitButton";
 import ButtonChangeAuthorization from "./ButtonChangeAuthorization";
 import UserPhoto from "./UserPhoto";
+import BackgroundImg from "../../Images/BackgroundImg.jpg";
 
 export default function AuthorizationForm({
 	title,
 	buttonTitle,
 	changeAuthorizationTitle,
+	onSubmit,
 	children,
 }) {
 	const isRegistration = title === "Реєстрація";
 	return (
-		<>
-			<Image
-				source={require("../../Images/BackgroundImg.jpg")}
-				resizeMode="cover"
-				style={styles.image}
-			/>
+		<KeyboardAvoidingView
+			behavior={Platform.OS == "ios" ? "padding" : "height"}
+			keyboardVerticalOffset={isRegistration ? -175 : -241}
+		>
+			<View style={styles.container}>
+				<ImageBackground
+					source={BackgroundImg}
+					resizeMode="cover"
+					style={styles.image}
+				>
+					<View
+						style={[
+							styles.form,
+							{
+								paddingTop: isRegistration ? 92 : 32,
+								paddingBottom: isRegistration ? 78 : 144,
+							},
+						]}
+					>
+						{isRegistration && <UserPhoto />}
+						<Text style={styles.title}>{title}</Text>
 
-			<View
-				style={[
-					styles.container,
-					{
-						paddingTop: isRegistration ? 92 : 32,
-						paddingBottom: isRegistration ? 78 : 144,
-					},
-				]}
-			>
-				{isRegistration && <UserPhoto />}
-				<Text style={styles.title}>{title}</Text>
-				<View style={styles.inputsList}>{children}</View>
+						<View style={styles.inputsList}>{children}</View>
 
-				<SubmitButton title={buttonTitle} />
-				<ButtonChangeAuthorization title={changeAuthorizationTitle} />
+						<SubmitButton title={buttonTitle} onSubmit={onSubmit} />
+
+						<ButtonChangeAuthorization title={changeAuthorizationTitle} />
+					</View>
+				</ImageBackground>
 			</View>
-		</>
+		</KeyboardAvoidingView>
 	);
 }
 
 const styles = StyleSheet.create({
-	image: { width: "100%" },
+	image: { flex: 1, justifyContent: "flex-end" },
 
 	container: {
-		position: "absolute",
-		bottom: 0,
-		width: "100%",
+		height: "100%",
+	},
 
+	form: {
 		display: "flex",
 		alignItems: "center",
 
-		paddingBottom: 78,
 		paddingLeft: 16,
 		paddingRight: 16,
 
@@ -71,8 +85,8 @@ const styles = StyleSheet.create({
 		display: "flex",
 		gap: 16,
 
-		marginBottom: 43,
-
 		width: "100%",
+
+		marginBottom: 43,
 	},
 });

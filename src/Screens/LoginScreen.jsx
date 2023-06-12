@@ -6,11 +6,22 @@ import Input from "../Components/Authorization/Input";
 export default function LoginScreen() {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+
+	const onSubmit = () => {
+		console.log({ email, password });
+		resetForm();
+	};
+
+	const resetForm = () => {
+		setEmail("");
+		setPassword("");
+	};
 	return (
 		<AuthorizationForm
 			title="Увійти"
 			buttonTitle="Увійти"
 			changeAuthorizationTitle="Немає акаунту? Зареєструватися"
+			onSubmit={onSubmit}
 		>
 			<Input
 				placeholder="Адреса електронної пошти"

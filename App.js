@@ -1,5 +1,9 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, View } from "react-native";
+import {
+	Keyboard,
+	TouchableWithoutFeedback,
+	View,
+} from "react-native";
 
 // import LoginScreen from "./src/Screens/LoginScreen";
 import RegistrationScreen from "./src/Screens/RegistrationScreen";
@@ -17,18 +21,13 @@ export default function App() {
 	}
 
 	return (
-		<View style={styles.container}>
-			{/* <LoginScreen /> */}
-			<RegistrationScreen />
-			<PostsScreen />
-			<StatusBar style="auto" />
-		</View>
+		<TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+			<View>
+				{/* <LoginScreen /> */}
+				<RegistrationScreen />
+				<PostsScreen />
+				<StatusBar style="auto" />
+			</View>
+		</TouchableWithoutFeedback>
 	);
 }
-
-const styles = StyleSheet.create({
-	container: {
-		display: "flex",
-		justifyContent: "flex-end",
-	},
-});

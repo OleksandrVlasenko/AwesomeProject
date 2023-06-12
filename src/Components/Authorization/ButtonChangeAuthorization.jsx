@@ -19,6 +19,7 @@ const styles = StyleSheet.create({
 		fontFamily: "Roboto-Regular",
 
 		fontSize: 16,
+		lineHeight: 19,
 		color: "#1B4371",
 	},
 	onPress: {

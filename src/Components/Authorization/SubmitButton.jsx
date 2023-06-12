@@ -1,8 +1,8 @@
 import { Pressable, StyleSheet, Text } from "react-native";
 
-export default function SubmitButton({ title }) {
+export default function SubmitButton({ title, onSubmit }) {
 	return (
-		<Pressable
+		<Pressable onPress={onSubmit}
 			style={({ pressed }) => [styles.button, pressed && styles.pressed]}
 		>
 			<Text style={styles.buttonText}>{title}</Text>
